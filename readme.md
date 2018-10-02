@@ -1,65 +1,25 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h1><a id="Tasks_Tracking_web_app_0"></a>Tasks Tracking web app</h1>
+<p>The backend was built using the Laravel framework and the front using React.js. The communication between the two are being made with an api. The database by default is set to sqlite to facilitate the reproduction.</p>
+<p>In this app, the user can start a tracker, pause, reset, edit the time and also add some description to specify the tasks he is working on. The user also has a list of all his previous completed tasks and a filter which he can use to easily access a certain task. He can filter using a range between a starting date, ending date, both or description.<br>
+I took around four and a half hours to build it, since I had to look up some things in react, the laravel part was very straight forward, didn’t have trouble with It.</p>
+<p>If I had more time I certainly would improve the style, solve a few things in the user interaction, like toggling the start button between resume and start to show the user that the chronometer is paused or not, better handle the errors that may occur instead of just logging them.<br>
+In the code aspect I would implement PropTypes to protect the components, have a closer look to the components lifecycle implementing componentWillMount, shouldComponentUpdate and so on.</p>
+<p>The parts that I think are fine are the filters, I believe they are working well, the one thing I would do would be implement a minimum string length (this part I just forgot) to the search description field to at least 3 characters. And I would also format the date time in the Sql query to a nicer format.</p>
+<h3><a id="Installation_14"></a>Installation</h3>
+<p>After cloning the repository we need to initialise the composer packages run:</p>
+<pre><code class="language-sh">$ composer install
+</code></pre>
+<p>Next we need do install the node dependencies:</p>
+<pre><code class="language-sh">$ npm install
+</code></pre>
+<p>Next we migrate the database (the database is set to sqlite, the file is in database/database.sqlite):</p>
+<pre><code class="language-sh">$ php artisan migrate
+</code></pre>
+<p>Then we seed some data to work with:</p>
+<pre><code class="language-sh">$ php artisan db:seed
+</code></pre>
+<p>And finally run:</p>
+<pre><code class="language-sh">$ php artisan serve
+</code></pre>
+<p>This command should run the local server in the route: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a><br>
+And now have fun!</p>
