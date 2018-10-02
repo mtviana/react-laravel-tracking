@@ -13,6 +13,7 @@ export default class TrackerItem extends Component {
                 <td>{task.id}</td>
                 <td>{task.task_time}</td>
                 <td>{task.started}</td>
+                <td>{task.finished}</td>
                 <td>{task.description}</td>
             </tr>            
         );

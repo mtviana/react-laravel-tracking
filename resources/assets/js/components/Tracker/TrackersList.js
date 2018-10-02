@@ -17,7 +17,8 @@ export default class TrackersList extends Component {
                                     <tr>
                                         <th>#</th>
                                         <th>Time</th>
-                                        <th>Date</th>
+                                        <th>Started</th>
+                                        <th>Finished</th>
                                         <th>Description</th>
                                     </tr>
                                 </thead>
