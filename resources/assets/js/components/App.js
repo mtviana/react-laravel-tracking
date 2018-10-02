@@ -12,6 +12,7 @@ export default class App extends Component {
         this.state = {
             filter_from: "",
             filter_to: "",
+            filter_description: "",
             tasks: [],
         }
     }
@@ -23,8 +24,10 @@ export default class App extends Component {
                 <TrackerFilters 
                     filter_from={this.state.filter_from}
                     filter_to={this.state.filter_to}
+                    filter_description={this.state.filter_description}
                     formFromUpdate={this.formFromUpdate.bind(this)}
                     formToUpdate={this.formToUpdate.bind(this)}
+                    formDescriptionUpdate={this.formDescriptionUpdate.bind(this)}
                 />
                 <TrackersList tasks={this.state.tasks} />
             </div>
@@ -42,6 +45,7 @@ export default class App extends Component {
             params: {
                 filter_from: $this.state.filter_from,
                 filter_to: $this.state.filter_to,
+                filter_description: $this.state.filter_description,
             }
         }).then(resp => {
             $this.setState({
@@ -66,6 +70,13 @@ export default class App extends Component {
     formToUpdate(value){
         this.setState({
             filter_to: value,
+        }, () => {
+            this.updateList()
+        });        
+    }
+    formDescriptionUpdate(value){
+        this.setState({
+            filter_description: value,
         }, () => {
             this.updateList()
         });        

@@ -17,6 +17,10 @@ export default class TrackerFilters extends Component {
                                 <label>To: </label>
                                 <input type="date" className="form-control" value={this.props.filter_to} onChange={e => this.formToUpdate(e)}/>
                             </div>
+                            <div className="form-group">
+                                <label>Description: </label>
+                                <input type="text" className="form-control" value={this.props.filter_description} onChange={e => this.formDescriptionUpdate(e)}/>
+                            </div>
                         </div>                                  
                     </div>
                 </div>
@@ -34,5 +38,8 @@ export default class TrackerFilters extends Component {
     }
     formToUpdate(e) {
         this.props.formToUpdate(e.target.value);
+    }
+    formDescriptionUpdate(e){
+        this.props.formDescriptionUpdate(e.target.value);
     }
 }

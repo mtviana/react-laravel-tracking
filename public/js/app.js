@@ -36523,6 +36523,7 @@ var App = function (_Component) {
         _this.state = {
             filter_from: "",
             filter_to: "",
+            filter_description: "",
             tasks: []
         };
         return _this;
@@ -36538,8 +36539,10 @@ var App = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Tracker_TrackerFilters__["a" /* default */], {
                     filter_from: this.state.filter_from,
                     filter_to: this.state.filter_to,
+                    filter_description: this.state.filter_description,
                     formFromUpdate: this.formFromUpdate.bind(this),
-                    formToUpdate: this.formToUpdate.bind(this)
+                    formToUpdate: this.formToUpdate.bind(this),
+                    formDescriptionUpdate: this.formDescriptionUpdate.bind(this)
                 }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Tracker_TrackersList__["a" /* default */], { tasks: this.state.tasks })
             );
@@ -36557,7 +36560,8 @@ var App = function (_Component) {
             axios.get('/api/tasks', {
                 params: {
                     filter_from: $this.state.filter_from,
-                    filter_to: $this.state.filter_to
+                    filter_to: $this.state.filter_to,
+                    filter_description: $this.state.filter_description
                 }
             }).then(function (resp) {
                 $this.setState({
@@ -36592,6 +36596,17 @@ var App = function (_Component) {
                 filter_to: value
             }, function () {
                 _this3.updateList();
+            });
+        }
+    }, {
+        key: 'formDescriptionUpdate',
+        value: function formDescriptionUpdate(value) {
+            var _this4 = this;
+
+            this.setState({
+                filter_description: value
+            }, function () {
+                _this4.updateList();
             });
         }
     }]);
@@ -57943,6 +57958,18 @@ var TrackerFilters = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "date", className: "form-control", value: this.props.filter_to, onChange: function onChange(e) {
                                         return _this2.formToUpdate(e);
                                     } })
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "div",
+                                { className: "form-group" },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "label",
+                                    null,
+                                    "Description: "
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "form-control", value: this.props.filter_description, onChange: function onChange(e) {
+                                        return _this2.formDescriptionUpdate(e);
+                                    } })
                             )
                         )
                     )
@@ -57966,6 +57993,11 @@ var TrackerFilters = function (_Component) {
         key: "formToUpdate",
         value: function formToUpdate(e) {
             this.props.formToUpdate(e.target.value);
+        }
+    }, {
+        key: "formDescriptionUpdate",
+        value: function formDescriptionUpdate(e) {
+            this.props.formDescriptionUpdate(e.target.value);
         }
     }]);
 

@@ -22,6 +22,10 @@ class TaskController extends Controller
         if($request->filter_to != null){
             $tasks->where('finished', '<=', $request->filter_to);
         }
+
+        if($request->filter_description != null){
+            $tasks->where('description', 'like', '%'.$request->filter_description.'%');
+        }        
         
         return response()->json($tasks->get());
     }
